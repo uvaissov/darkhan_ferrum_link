@@ -3,6 +3,8 @@ import { formatPrice } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { AddToCartButton } from '@/components/catalog/add-to-cart-button'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 
 interface ProductPageProps {

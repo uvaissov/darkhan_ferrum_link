@@ -3,6 +3,8 @@ import { ProductCard } from '@/components/catalog/product-card'
 import { CategorySidebar } from '@/components/catalog/category-sidebar'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 interface CategoryPageProps {
   params: Promise<{ category: string }>
 }

@@ -2,6 +2,8 @@ import { prisma } from '@/lib/prisma'
 import { ProductCard } from '@/components/catalog/product-card'
 import { CategorySidebar } from '@/components/catalog/category-sidebar'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Каталог',
   description: 'Каталог металлопроката и промышленных материалов',
