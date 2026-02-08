@@ -1,48 +1,33 @@
-# SEO Meta-теги для Ferrum Link
+# Деплой Ferrum Link на сервер 89.207.255.66
 
 ## Контекст
-Сайт ferrumlink.kz не имеет SEO-оптимизации: нет Open Graph тегов, robots.txt, sitemap, structured data. Поисковые системы (Google, Yandex) не смогут корректно индексировать и отображать сайт. Нужно добавить полный набор meta-тегов.
+Проект нужно развернуть на чистом сервере Ubuntu 24.04 (4GB RAM, 96GB диск). В проекте уже есть Dockerfile и docker-compose.yml. Используем Docker Compose для запуска всех сервисов.
 
-## План реализации
+## План
 
-### 1. Корневой layout — расширить metadata
-**Файл:** `src/app/layout.tsx`
-- Добавить `metadataBase: new URL('https://ferrumlink.kz')`
-- Добавить Open Graph теги (og:title, og:description, og:type, og:locale, og:site_name)
-- Добавить Twitter Card теги (twitter:card, twitter:title, twitter:description)
-- Добавить `alternates: { canonical: '/' }`
-- Добавить `robots: { index: true, follow: true }`
+### 1. Установить Docker и Docker Compose на сервере
+- Установить Docker Engine через официальный репозиторий
+- Docker Compose идёт в комплекте с Docker Engine
 
-### 2. robots.txt
-**Создать:** `src/app/robots.ts`
-- Разрешить всем ботам сканировать сайт
-- Запретить `/admin/`, `/api/`, `/cart`
-- Указать ссылку на sitemap: `https://ferrumlink.kz/sitemap.xml`
+### 2. Клонировать репозиторий на сервер
+- `git clone https://github.com/uvaissov/darkhan_ferrum_link.git`
 
-### 3. Динамический sitemap
-**Создать:** `src/app/sitemap.ts`
-- Статичные страницы: `/`, `/catalog`, `/about`, `/contacts`, `/delivery`, `/services`, `/calculator`, `/news`
-- Динамические: все категории из БД
-- Динамические: все товары из БД (через категорию)
-- Динамические: все опубликованные новости из БД
+### 3. Создать .env файл
+- DATABASE_URL и REDIS_URL для production
 
-### 4. Structured Data (JSON-LD)
-**Создать:** `src/components/seo/json-ld.tsx`
-- Компонент `OrganizationJsonLd` — данные о компании (ТОО Ferrum Link, адрес, email)
-- Встроить в корневой layout
+### 4. Запустить docker-compose
+- `docker compose up -d --build` — собрать и запустить все сервисы (app, db, redis)
+- pgadmin не нужен на production
 
-### 5. Админ-страницы — закрыть от индексации
-**Файл:** `src/app/admin/layout.tsx`
-- Добавить `robots: { index: false, follow: false }`
+### 5. Применить миграции и seed
+- `docker compose exec app npx prisma migrate deploy`
+- `docker compose exec app npx prisma db seed` (опционально)
 
-### 6. Динамические страницы — добавить OG-теги
-**Файлы:**
-- `src/app/catalog/[category]/page.tsx` — OG для категорий
-- `src/app/catalog/[category]/[product]/page.tsx` — OG для товаров (+ изображение если есть)
-- `src/app/news/[slug]/page.tsx` — OG для новостей (+ изображение если есть)
+### 6. Настроить Nginx как reverse proxy
+- Установить Nginx
+- Настроить проксирование с порта 80 на localhost:3000
+- Это позволит обращаться к сайту по IP без указания порта
 
-## Проверка
-1. `npm run build` — убедиться что билд проходит
-2. Открыть http://localhost:3000 — проверить meta-теги через DevTools
-3. Проверить http://localhost:3000/robots.txt
-4. Проверить http://localhost:3000/sitemap.xml
+### 7. Проверка
+- Открыть http://89.207.255.66 в браузере
+- Проверить что сайт загружается
