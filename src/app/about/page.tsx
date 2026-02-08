@@ -2,7 +2,7 @@ import { CheckCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'О компании',
-  description: 'Информация о компании Металлопрокат',
+  description: 'Информация о компании ТОО Ferrum Link',
 }
 
 export default function AboutPage() {
@@ -12,9 +12,9 @@ export default function AboutPage() {
 
       <div className="prose max-w-none">
         <p className="text-lg text-gray-600 mb-6">
-          Компания «Металлопрокат» — один из ведущих поставщиков металлопроката
-          и промышленных материалов в Казахстане. Мы работаем на рынке с 2010 года
-          и за это время заслужили доверие сотен клиентов.
+          ТОО Ferrum Link — один из ведущих поставщиков металлопроката
+          и промышленных материалов в Казахстане. За время работы компания
+          заслужила доверие сотен клиентов.
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4">Наши преимущества</h2>

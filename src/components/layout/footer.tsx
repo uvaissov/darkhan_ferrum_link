@@ -8,11 +8,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">
-              <span className="text-orange-500">МЕТАЛЛО</span>ПРОКАТ
+            <h3 className="text-white text-lg font-bold mb-4 flex items-center gap-2">
+              <img src="/logo.svg" alt="Ferrum Link" className="w-7 h-7" />
+              <span><span className="text-orange-500">FERRUM</span> LINK</span>
             </h3>
             <p className="text-sm">
-              Поставщик металлопроката и промышленных материалов в Казахстане с 2010 года.
+              ТОО Ferrum Link — поставщик металлопроката и промышленных материалов в Казахстане.
             </p>
           </div>
 
@@ -45,7 +46,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>г. Астана, ул. Примерная, 123</span>
+                <span>г. Астана, ул. Циолковского 11, офис 305</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
@@ -53,14 +54,14 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:info@metalloprokat.kz" className="hover:text-orange-400">info@metalloprokat.kz</a>
+                <a href="mailto:info@ferrumlink.kz" className="hover:text-orange-400">info@ferrumlink.kz</a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Металлопрокат. Все права защищены.</p>
+          <p>&copy; {new Date().getFullYear()} ТОО Ferrum Link. Все права защищены.</p>
         </div>
       </div>
     </footer>

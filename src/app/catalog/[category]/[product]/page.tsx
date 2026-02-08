@@ -17,9 +17,22 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
   if (!product) return { title: 'Товар не найден' }
 
+  const { category: categorySlug } = await params
+  const description = product.description || product.name
+
   return {
     title: product.name,
-    description: product.description || product.name,
+    description,
+    openGraph: {
+      title: product.name,
+      description,
+      type: 'website',
+      url: `/catalog/${categorySlug}/${productSlug}`,
+      ...(product.image && { images: [{ url: product.image }] }),
+    },
+    alternates: {
+      canonical: `/catalog/${categorySlug}/${productSlug}`,
+    },
   }
 }
 

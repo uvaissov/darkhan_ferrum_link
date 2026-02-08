@@ -4,7 +4,7 @@ import { CallbackForm } from '@/components/forms/callback-form'
 
 export const metadata = {
   title: 'Контакты',
-  description: 'Контактная информация компании Металлопрокат',
+  description: 'Контактная информация ТОО Ferrum Link',
 }
 
 export default function ContactsPage() {
@@ -35,8 +35,8 @@ export default function ContactsPage() {
                   <Mail className="w-5 h-5 text-orange-500" />
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
-                    <a href="mailto:info@metalloprokat.kz" className="font-medium hover:text-orange-500">
-                      info@metalloprokat.kz
+                    <a href="mailto:info@ferrumlink.kz" className="font-medium hover:text-orange-500">
+                      info@ferrumlink.kz
                     </a>
                   </div>
                 </div>
@@ -49,7 +49,7 @@ export default function ContactsPage() {
                   <MapPin className="w-5 h-5 text-orange-500" />
                   <div>
                     <p className="text-sm text-gray-500">Адрес</p>
-                    <p className="font-medium">г. Астана, ул. Примерная, 123</p>
+                    <p className="font-medium">г. Астана, ул. Циолковского 11, офис 305</p>
                   </div>
                 </div>
               </CardContent>

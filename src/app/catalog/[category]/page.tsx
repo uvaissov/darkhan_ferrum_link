@@ -15,9 +15,20 @@ export async function generateMetadata({ params }: CategoryPageProps) {
 
   if (!category) return { title: 'Категория не найдена' }
 
+  const description = category.description || `${category.name} - каталог продукции Ferrum Link`
+
   return {
     title: category.name,
-    description: category.description || `${category.name} - каталог продукции`,
+    description,
+    openGraph: {
+      title: category.name,
+      description,
+      type: 'website',
+      url: `/catalog/${categorySlug}`,
+    },
+    alternates: {
+      canonical: `/catalog/${categorySlug}`,
+    },
   }
 }
 

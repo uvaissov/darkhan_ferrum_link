@@ -7,7 +7,7 @@ export function Hero() {
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Металлопрокат и промышленные материалы
+            Металлопрокат и промышленные материалы от Ferrum Link
           </h1>
           <p className="text-xl text-gray-300 mb-8">
             Более 2000 наименований продукции. Доставка по всему Казахстану. Работаем с 2010 года.

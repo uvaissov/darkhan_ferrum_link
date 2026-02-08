@@ -20,9 +20,9 @@ export function Header() {
               <Phone className="w-4 h-4" />
               +7 (7172) 12-34-56
             </a>
-            <a href="mailto:info@metalloprokat.kz" className="hidden sm:flex items-center gap-1 hover:text-orange-400">
+            <a href="mailto:info@ferrumlink.kz" className="hidden sm:flex items-center gap-1 hover:text-orange-400">
               <Mail className="w-4 h-4" />
-              info@metalloprokat.kz
+              info@ferrumlink.kz
             </a>
           </div>
           <div className="text-gray-400">
@@ -34,8 +34,9 @@ export function Header() {
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-gray-900">
-            <span className="text-orange-500">МЕТАЛЛО</span>ПРОКАТ
+          <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-gray-900">
+            <img src="/logo.svg" alt="Ferrum Link" className="w-8 h-8" />
+            <span><span className="text-orange-500">FERRUM</span> LINK</span>
           </Link>
 
           {/* Desktop nav */}
